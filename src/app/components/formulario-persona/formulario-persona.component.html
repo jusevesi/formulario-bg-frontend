@@ -1,20 +1,20 @@
 <div class="container">
     <form [formGroup]="formGroup">
         <div class="mb-3">
-            <label for="cedula" class="form-label">Cedula</label>
+            <label for="cedula" class="form-label">Cedula*</label>
             <input type="number" class="form-control" id="cedula" formControlName="cedula">
         </div>
         <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
+            <label for="nombre" class="form-label">Nombre*</label>
             <input type="text" class="form-control" id="nombre" formControlName="nombre">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Fecha de Nacimiento</label>
+            <label for="exampleInputPassword1" class="form-label">Fecha de Nacimiento*</label>
             <input type="date" class="form-control" id="exampleInputPassword1" formControlName="nacimiento">
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Genero</label>
+            <label for="exampleInputPassword1" class="form-label">Genero*</label>
             <select class="form-select" aria-label="Default select example" formControlName="genero">
                 <option value="m">Masculino</option>
                 <option value="f">Femenino</option>
@@ -33,16 +33,16 @@
             </select>
         </div>
 
-        <!-- <div id="dynamicInput[0]">
-            <button type="button" class="btn btn-link" (click)="addInput()">Agregar Hijo</button><br><br>
+        <!-- <div id="persona" class="mb-3" *ngIf="listaPersonas.length > 0">
+            <label for="exampleInputPassword1" class="form-label">Hijo</label>
+            <select class="form-select" aria-label="Default select example" formControlName="hijo">
+                <option *ngFor="let persona of listaPersonas" [value]="persona.idpersona">{{persona.nombre}}</option>
+            </select>
         </div> -->
 
-        <div id="dynamicInput[0]">
-            Entry 1<br><input type="text" name="myInputs[]">
-            <input type="button" value="+" onClick="addInput();">
-        </div>
-
-        <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary"
-            (click)="agregarPersona()">Agregar</button>
+        <!-- <div id="dynamicInput[0]">
+            <button type="button" (click)="addInputHijo()" class="btn btn-link">Agregar Hijo</button><br><br>
+        </div>  -->
+        <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="agregarPersona()">Agregar</button>
     </form>
 </div>

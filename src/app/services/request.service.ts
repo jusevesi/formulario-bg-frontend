@@ -13,9 +13,20 @@ export class RequestService {
     const url = `${environment.apiUrl}/obtenerPersonas`
     return this.http.get(url).toPromise();
   }
+
+  public obtenerHijos(id: number): Promise<any> {
+    const url = `${environment.apiUrl}/obtenerHijos?id=${id}`
+    return this.http.get(url).toPromise();
+  }
+
   public agregarPersona(persona: any): Promise<any> {
     const url = `${environment.apiUrl}/agregarPersona`
     return this.http.post(url, persona).toPromise();
+  }
+
+  public agregarHijo(hijo: any): Promise<any> {
+    const url = `${environment.apiUrl}/agregarHijo`
+    return this.http.post(url, hijo).toPromise();
   }
 
 }

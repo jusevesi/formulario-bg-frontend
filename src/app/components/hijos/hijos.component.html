@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of listaHijos">
+                <td>{{persona.nombre}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-link" (click)="agegarSelect()">Agregar Hijo</button>
+
+    <form *ngIf="mostrarForm && listaPersonas.length > 0" [formGroup]="formGroup">
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Hijo</label>
+            <select class="form-select" aria-label="Default select example" formControlName="hijo">
+                <option *ngFor="let persona of listaPersonas" [value]="persona.idpersona">{{persona.nombre}}</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="agregarHijo()">Agregar</button>
+    </form>
+
+    <!-- <h2 *ngIf="listaPersonas.length === 0">No tiene hijos</h2> -->
+</div>

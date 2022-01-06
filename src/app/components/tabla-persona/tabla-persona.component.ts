@@ -10,8 +10,8 @@ export class TablaPersonaComponent implements OnInit {
 
 
   public listaPersonas: any[] = [];
-  
-  constructor(private requestService: RequestService ) { }
+
+  constructor(private requestService: RequestService) { }
 
   ngOnInit(): void {
     this.obtenerPersonas();

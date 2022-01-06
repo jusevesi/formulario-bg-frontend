@@ -13,23 +13,16 @@ export class FormularioPersonaComponent implements OnInit {
   public formGroup!: FormGroup;
   public url!: string;
   public personaActualizar!: any;
-  public listaPersonas = [];
+  public listaPersonas: any = [];
   public listaMasculina: any[] = [];
   public listaFemenina: any[] = [];
+  public selectedChild: number | null = null;
 
-  constructor(private formBuilder: FormBuilder, private requestService: RequestService) { }
+  constructor(private formBuilder: FormBuilder, private requestService: RequestService, private router: Router) { }
 
   public ngOnInit() {
     this.obtenerPersonas();
     this.buildForm();
-  }
-
-  public nuevoAlert(message: string, type: string) {
-    let alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-    let wrapper = document.createElement('div')
-    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-
-    alertPlaceholder?.append(wrapper)
   }
 
   private buildForm() {
@@ -39,20 +32,29 @@ export class FormularioPersonaComponent implements OnInit {
       nacimiento: ['', Validators.required],
       genero: ['', Validators.required],
       papa: [null],
-      mama: [null]
+      mama: [null],
+      hijo: [null]
     });
   }
 
   public agregarPersona() {
     console.log('entra al metodo agregar');
     console.log(this.formGroup.value);
+
     this.requestService.agregarPersona(this.formGroup.value).then(response => {
-      alert("Persona Agregada Correctamente");
+      if (response.message === "This person already exists") {
+        alert("Esta persona ya existe");
+      } else {
+        alert("Persona Agregada Correctamente");
+      }
+      this.router.navigate(["/listarPersonas"])
     })
+
       .catch(error => {
         console.log(error);
       })
   }
+
 
   public obtenerPersonas() {
     console.log('entra al metodo obtener');
@@ -66,5 +68,12 @@ export class FormularioPersonaComponent implements OnInit {
         console.log(error);
       })
   }
-  
+
+  // public addInputHijo(){
+  //   const original = document.getElementById("persona");
+  //   const nuevo = original?.cloneNode(true);
+  //   const destino = document.getElementById("inputHijo");
+  //   if(nuevo) destino?.appendChild(nuevo);
+  // }
+
 }

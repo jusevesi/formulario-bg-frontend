@@ -17,6 +17,7 @@
                 <td>{{persona.nombre}}</td>
                 <td>{{persona.nacimiento.substring(0,10)}}</td>
                 <td>{{persona.genero === "f" ? "Femenino" : "Masculino"}}</td>
+                <td><button type="button" class="btn btn-link" [routerLink]="['/hijos']" [queryParams]="{id: persona.idpersona}">Ver Hijos</button></td>
             </tr>
         </tbody>
     </table>

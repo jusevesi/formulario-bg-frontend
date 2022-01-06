@@ -8,7 +8,8 @@ import { FormularioPersonaComponent } from './components/formulario-persona/form
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HijosComponent } from './components/hijos/hijos.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     AppComponent,
     TablaPersonaComponent,
-    FormularioPersonaComponent
+    FormularioPersonaComponent,
+    HijosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule      
   ],
   providers: [],
   bootstrap: [AppComponent]
