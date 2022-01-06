@@ -8,6 +8,7 @@ const routes: Routes = [
   {path:"agregarPersona",component:FormularioPersonaComponent},
   {path:"listarPersonas",component:TablaPersonaComponent},
   {path:"hijos",component: HijosComponent},
+  {path:"", component: TablaPersonaComponent},
 
 ];
 
