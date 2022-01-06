@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Cédula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha de Nacimiento</th>
+                <th scope="col">Genero</th>
+                <!-- <th scope="col">Papá</th>
+                <th scope="col">Mamá</th>
+                <th scope="col">Hijo</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of listaPersonas">
+                <td>{{persona.cedula}}</td>
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.nacimiento.substring(0,10)}}</td>
+                <td>{{persona.genero === "f" ? "Femenino" : "Masculino"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
