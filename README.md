@@ -1,6 +1,6 @@
-# PruebaEcobotFrontEnd
+# FormularioBg FrontEnd
 
-Este repositorio corresponde al frontend hecho con angular para el challenge de bg.
+Este repositorio corresponde al frontend hecho con angular para el Formulariobg.
 
 ## Pasos para ejecutar el proyecto
 Para ejecutar este proyecto y ver su funcionalidad se debe ejecutar primero los pasos correspondientes al backend del siguiente repositorio: 
